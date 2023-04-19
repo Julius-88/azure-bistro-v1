@@ -1,1 +1,1 @@
-web: gunicorn reservations.wsgi
+web: gunicorn azure-bistro.wsgi
