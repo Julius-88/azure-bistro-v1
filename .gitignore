@@ -1,0 +1,19 @@
+# Python compiled files
+__pycache__/
+*.pyc
+
+# Environment and configuration files
+.env
+db.sqlite3
+*.log
+
+# IDE specific files
+.vscode/
+*.idea/
+*.swp
+*.swo
+*.swn
+*.bak
+*.sublime-project
+*.sublime-workspace
+*.tm_properties
