@@ -4,19 +4,89 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    background-color: #111B2C;
+    color: white;
     font-family: sans-serif;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+body {
+    background-color: #111B2C;
+    min-width: 320px;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 /* --------------------------------------------------------FONTS */
-.font-logo {
+.font-satisfy {
     font-family: 'Satisfy', cursive;
+    color: #007FFF;
 }
 
-.font-heading {
+.logo {
+    font-size: xx-large;
+}
+
+.font-lora {
     font-family: 'Lora', serif;
 }
 
-.font-body {
+.font-lato {
     font-family: 'Lato';
+}
+
+/* --------------------------------------------------------NAVBAR */
+
+.navbar {
+    background-color: #1C2E4A;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    padding: 15px;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    width: 100%;
+}
+
+.navbar ul {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.navbar li {
+    margin: 15px;
+}
+
+.navbar a:hover {
+    color: #FF7F50;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #1C2E4A;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    padding: 12px 16px;
+    display: block;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* --------------------------------------------------------Media Queries */
+@media screen and (max-width: 950px) {
+    .navbar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }
