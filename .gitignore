@@ -3,7 +3,7 @@ __pycache__/
 *.pyc
 
 # Environment and configuration files
-.env
+env.py
 db.sqlite3
 *.log
 
