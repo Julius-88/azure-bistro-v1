@@ -1,1 +1,1 @@
-web: gunicorn azure-bistro.wsgi
+web: gunicorn azure_bistro.wsgi
