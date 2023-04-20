@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/d5722e680c.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{% static 'css/global_styles.css' %} ">
+    <script src="{% static 'js/script.js' %}"></script>
     <title>Azure Bistro</title>
 </head>
 
@@ -37,7 +38,7 @@
     <section>Dessert</section>
     <section>Drinks</section>
     <footer>
-        <section>Google Maps</section>
+        <section id="map"></section>
         <section class="footer-middle">
             <p>Arenavägen 69, 121 77 Johanneshov</p>
             <p>Tel: 070-4567187</p>
@@ -56,6 +57,8 @@
             <p class="copyright">&copy; copyright 2023</p>
         </section>
     </footer>
+    <script async src="https://maps.googleapis.com/maps/api/js?key={{ google_maps_api_key }}&callback=initMap">
+    </script>
 </body>
 
 </html>
