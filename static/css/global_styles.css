@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&family=Lora&family=Satisfy&display=swap');
 
+/* --------------------------------------------------------General Styles */
+
 * {
     padding: 0;
     margin: 0;
@@ -17,6 +19,11 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    position: relative;
+}
+
+a:hover {
+    color: #FF7F50;
 }
 
 /* --------------------------------------------------------FONTS */
@@ -61,9 +68,7 @@ body {
     margin: 15px;
 }
 
-.navbar a:hover {
-    color: #FF7F50;
-}
+
 
 .dropdown-content {
     display: none;
@@ -82,11 +87,87 @@ body {
     display: block;
 }
 
+/* --------------------------------------------------------FOOTER */
+
+footer {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #1C2E4A;
+    font-size: larger;
+}
+
+.footer-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.social-media {
+    padding: 10px;
+    border-radius: 50%;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.social-media:hover {
+    background-color: #FF7F50;
+
+}
+
+.copyright {
+    margin-top: 10px;
+    padding: 5px;
+    font-size: x-small;
+}
+
+#map {
+    width: 40%;
+    height: 80px;
+    margin: 5px;
+}
+
 /* --------------------------------------------------------Media Queries */
 @media screen and (max-width: 950px) {
     .navbar {
         display: flex;
         flex-direction: column;
         align-items: center;
+        font-size: smaller;
+    }
+
+    .social-media-container {
+        display: flex;
+    }
+
+    .social-media {
+        font-size: small;
+        padding: 5px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #map {
+        width: 60%;
+        height: 150px;
+    }
+
+    footer {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #map {
+        width: 100%;
+        height: 200px;
+        margin: 10px 0;
+    }
+
+    .footer-right,
+    .footer-middle {
+        text-align: center;
+        margin-bottom: 10px;
     }
 }
