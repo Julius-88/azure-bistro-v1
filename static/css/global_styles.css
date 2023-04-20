@@ -92,8 +92,8 @@ a:hover {
 footer {
     margin-top: auto;
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: baseline;
     padding: 15px;
     background-color: #1C2E4A;
 }
@@ -130,8 +130,16 @@ footer {
         font-size: smaller;
     }
 
+    .social-media-container {
+        display: flex;
+    }
+
     .social-media {
         font-size: small;
         padding: 5px;
+    }
+
+    .footer-middle {
+        font-size: x-small;
     }
 }
