@@ -95,33 +95,49 @@ a:hover {
 
 }
 
+.content-section {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
 .content-section img {
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
 }
+
+
 
 .appetizer {
     background-color: #007FFF;
     padding: 50px;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .main-course {
     background-color: rgba(0, 127, 255, 80%);
     padding: 50px;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .dessert {
-    background-color: rgba(0, 127, 255, 80%);
+    background-color: rgba(0, 127, 255, 60%);
     padding: 50px;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .drinks {
-    background-color: rgba(0, 127, 255, 80%);
+    background-color: rgba(0, 127, 255, 40%);
     padding: 50px;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* --------------------------------------------------------FOOTER */
@@ -185,6 +201,7 @@ footer {
 }
 
 @media screen and (max-width: 768px) {
+
     #map {
         width: 60%;
         height: 150px;
