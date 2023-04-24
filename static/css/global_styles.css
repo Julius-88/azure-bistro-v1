@@ -87,6 +87,43 @@ a:hover {
     display: block;
 }
 
+/* --------------------------------------------------------MAIN CONTENT*/
+
+.main {
+    padding: 10% 0;
+    margin: 33px 0;
+
+}
+
+.content-section img {
+    width: 100%;
+    height: auto;
+}
+
+.appetizer {
+    background-color: #007FFF;
+    padding: 50px;
+    text-align: center;
+}
+
+.main-course {
+    background-color: rgba(0, 127, 255, 80%);
+    padding: 50px;
+    text-align: center;
+}
+
+.dessert {
+    background-color: rgba(0, 127, 255, 80%);
+    padding: 50px;
+    text-align: center;
+}
+
+.drinks {
+    background-color: rgba(0, 127, 255, 80%);
+    padding: 50px;
+    text-align: center;
+}
+
 /* --------------------------------------------------------FOOTER */
 
 footer {

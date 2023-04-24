@@ -13,30 +13,50 @@
 </head>
 
 <body>
-    <nav class="navbar">
-        <div>
-            <a href="{% url 'index' %}" class="font-satisfy logo">Azure Bistro</a>
-        </div>
-        <div>
-            <ul>
-                <li><a href="{% url 'index' %}" class="font-lora">Home</a></li>
-                <li class="dropdown"><a href="{% url 'menu' %}" class="font-lora">Menu</a>
-                    <div class="dropdown-content">
-                        <a href="{% url 'menu' %}#appetizers">Appetizers</a>
-                        <a href="{% url 'menu' %}#main-courses">Main Courses</a>
-                        <a href="{% url 'menu' %}#desserts">Desserts</a>
-                        <a href="{% url 'menu' %}#drinks">Drinks</a>
-                    </div>
-                </li>
-                <li><a href="{% url 'reserve' %}" class="font-lora">Reserve</a></li>
-                <li><a href="{% url 'contact' %}" class="font-lora">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
-    <section>Appetizers</section>
-    <section>Main Course</section>
-    <section>Dessert</section>
-    <section>Drinks</section>
+    <header>
+        <nav class="navbar">
+            <div>
+                <a href="{% url 'index' %}" class="font-satisfy logo">Azure Bistro</a>
+            </div>
+            <div>
+                <ul>
+                    <li><a href="{% url 'index' %}" class="font-lora">Home</a></li>
+                    <li class="dropdown"><a href="{% url 'menu' %}" class="font-lora">Menu</a>
+                        <div class="dropdown-content">
+                            <a href="{% url 'menu' %}#appetizers">Appetizers</a>
+                            <a href="{% url 'menu' %}#main-courses">Main Courses</a>
+                            <a href="{% url 'menu' %}#desserts">Desserts</a>
+                            <a href="{% url 'menu' %}#drinks">Drinks</a>
+                        </div>
+                    </li>
+                    <li><a href="{% url 'reserve' %}" class="font-lora">Reserve</a></li>
+                    <li><a href="{% url 'contact' %}" class="font-lora">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main class="main">
+        <section class="content-section ">
+            <h2 class="appetizer">Appetizers</h2>
+            <img src="https://res.cloudinary.com/julius-cloud/image/upload/v1682058051/appetizer_pygzpl.jpg"
+                alt="Image of a delicious appetizer" class="image">
+        </section>
+        <section class="content-section ">
+            <img src="https://res.cloudinary.com/julius-cloud/image/upload/v1682058037/main-course_v3ugaw.jpg"
+                alt="Image of a signature main course">
+            <h2 class="main-course">Main Course</h2>
+        </section>
+        <section class="content-section">
+            <h2 class="dessert">Dessert</h2>
+            <img src="https://res.cloudinary.com/julius-cloud/image/upload/v1682058009/dessert_vvt3g7.jpg"
+                alt="Image of a tiramisu dessert">
+        </section>
+        <section class="content-section">
+            <img src="https://res.cloudinary.com/julius-cloud/image/upload/v1682058016/drinks_u5mnay.jpg"
+                alt="Image of a colorful cocktail">
+            <h2 class="drinks">Drinks</h2>
+        </section>
+    </main>
     <footer>
         <section id="map"></section>
         <section class="footer-middle">
