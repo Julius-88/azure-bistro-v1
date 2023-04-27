@@ -1,0 +1,21 @@
+#menu {
+    padding: 50px;
+}
+
+.menu-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-family: 'Lora';
+    margin-top: 20px;
+    margin-bottom: 5px;
+    text-decoration: underline;
+}
+
+p {
+    font-family: 'Lato';
+}
