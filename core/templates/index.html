@@ -38,31 +38,39 @@
         </nav>
     </header>
     <main class="main">
-        <section class="content-section ">
-            <h2 class="appetizer">Appetizers</h2>
-            <img src="https://res.cloudinary.com/julius-cloud/image/upload/w_300,h_200,c_fill,q_auto/v1682058051/appetizer_pygzpl.jpg"
-                class="image"
-                srcset="https://res.cloudinary.com/julius-cloud/image/upload/w_300,h_200,c_fill,q_auto/v1682058051/appetizer_pygzpl.jpg 300w, https://res.cloudinary.com/julius-cloud/image/upload/w_600,h_400,c_fill,q_auto/v1682058051/appetizer_pygzpl.jpg 600w, https://res.cloudinary.com/julius-cloud/image/upload/w_900,h_600,c_fill,q_auto/v1682058051/appetizer_pygzpl.jpg 900w"
-                alt="Image of a appetizer" sizes="(max-width: 768px) 50vw, 100vw">
-        </section>
-        <section class="content-section ">
-            <img src="https://res.cloudinary.com/julius-cloud/image/upload/w_300,h_200,c_fill,q_auto/v1682058037/main-course_v3ugaw.jpg"
-                srcset="https://res.cloudinary.com/julius-cloud/image/upload/w_300,h_200,c_fill,q_auto/v1682058037/main-course_v3ugaw.jpg 300w, https://res.cloudinary.com/julius-cloud/image/upload/w_600,h_400,c_fill,q_auto/v1682058037/main-course_v3ugaw.jpg 600w, https://res.cloudinary.com/julius-cloud/image/upload/w_900,h_600,c_fill,q_auto/v1682058037/main-course_v3ugaw.jpg 900w"
-                alt="Image of a signature main course" sizes="(max-width: 768px) 50vw, 100vw">
-            <h2 class="main-course">Main Course</h2>
-        </section>
-        <section class="content-section">
-            <h2 class="dessert">Dessert</h2>
-            <img src="https://res.cloudinary.com/julius-cloud/image/upload/w_300,h_200,c_fill,q_auto/v1682058009/dessert_vvt3g7.jpg"
-                srcset="https://res.cloudinary.com/julius-cloud/image/upload/w_300,h_200,c_fill,q_auto/v1682058009/dessert_vvt3g7.jpg 300w, https://res.cloudinary.com/julius-cloud/image/upload/w_600,h_400,c_fill,q_auto/v1682058009/dessert_vvt3g7.jpg 600w, https://res.cloudinary.com/julius-cloud/image/upload/w_900,h_600,c_fill,q_auto/v1682058009/dessert_vvt3g7.jpg 900w"
-                alt="Image of a tiramisu dessert" sizes="(max-width: 768px) 50vw, 100vw">
-        </section>
-        <section class="content-section">
-            <img src="https://res.cloudinary.com/julius-cloud/image/upload/w_300,h_200,c_fill,q_auto/v1682058016/drinks_u5mnay.jpg"
-                srcset="https://res.cloudinary.com/julius-cloud/image/upload/w_300,h_200,c_fill,q_auto/v1682058016/drinks_u5mnay.jpg 300w, https://res.cloudinary.com/julius-cloud/image/upload/w_600,h_400,c_fill,q_auto/v1682058016/drinks_u5mnay.jpg 600w, https://res.cloudinary.com/julius-cloud/image/upload/w_900,h_600,c_fill,q_auto/v1682058016/drinks_u5mnay.jpg 900w"
-                alt="Image of a colorful cocktail" sizes="(max-width: 768px) 50vw, 100vw">
-            <h2 class="drinks">Drinks</h2>
-        </section>
+        <a href=" {% url 'menu' %}#appetizers">
+            <section class="content-section ">
+                <h2 class="appetizer">Appetizers</h2>
+                <img src="https://res.cloudinary.com/julius-cloud/image/upload/w_300,h_200,c_fill,q_auto/v1682058051/appetizer_pygzpl.jpg"
+                    class="image"
+                    srcset="https://res.cloudinary.com/julius-cloud/image/upload/w_300,h_200,c_fill,q_auto/v1682058051/appetizer_pygzpl.jpg 300w, https://res.cloudinary.com/julius-cloud/image/upload/w_600,h_400,c_fill,q_auto/v1682058051/appetizer_pygzpl.jpg 600w, https://res.cloudinary.com/julius-cloud/image/upload/w_900,h_600,c_fill,q_auto/v1682058051/appetizer_pygzpl.jpg 900w"
+                    alt="Image of a appetizer" sizes="(max-width: 768px) 50vw, 100vw">
+            </section>
+        </a>
+        <a href="{% url 'menu' %}#main-courses">
+            <section class="content-section ">
+                <img src="https://res.cloudinary.com/julius-cloud/image/upload/w_300,h_200,c_fill,q_auto/v1682058037/main-course_v3ugaw.jpg"
+                    srcset="https://res.cloudinary.com/julius-cloud/image/upload/w_300,h_200,c_fill,q_auto/v1682058037/main-course_v3ugaw.jpg 300w, https://res.cloudinary.com/julius-cloud/image/upload/w_600,h_400,c_fill,q_auto/v1682058037/main-course_v3ugaw.jpg 600w, https://res.cloudinary.com/julius-cloud/image/upload/w_900,h_600,c_fill,q_auto/v1682058037/main-course_v3ugaw.jpg 900w"
+                    alt="Image of a signature main course" sizes="(max-width: 768px) 50vw, 100vw">
+                <h2 class="main-course">Main Course</h2>
+            </section>
+        </a>
+        <a href="{% url 'menu' %}#desserts">
+            <section class="content-section">
+                <h2 class="dessert">Dessert</h2>
+                <img src="https://res.cloudinary.com/julius-cloud/image/upload/w_300,h_200,c_fill,q_auto/v1682058009/dessert_vvt3g7.jpg"
+                    srcset="https://res.cloudinary.com/julius-cloud/image/upload/w_300,h_200,c_fill,q_auto/v1682058009/dessert_vvt3g7.jpg 300w, https://res.cloudinary.com/julius-cloud/image/upload/w_600,h_400,c_fill,q_auto/v1682058009/dessert_vvt3g7.jpg 600w, https://res.cloudinary.com/julius-cloud/image/upload/w_900,h_600,c_fill,q_auto/v1682058009/dessert_vvt3g7.jpg 900w"
+                    alt="Image of a tiramisu dessert" sizes="(max-width: 768px) 50vw, 100vw">
+            </section>
+        </a>
+        <a href="{% url 'menu' %}#drinks">
+            <section class="content-section">
+                <img src="https://res.cloudinary.com/julius-cloud/image/upload/w_300,h_200,c_fill,q_auto/v1682058016/drinks_u5mnay.jpg"
+                    srcset="https://res.cloudinary.com/julius-cloud/image/upload/w_300,h_200,c_fill,q_auto/v1682058016/drinks_u5mnay.jpg 300w, https://res.cloudinary.com/julius-cloud/image/upload/w_600,h_400,c_fill,q_auto/v1682058016/drinks_u5mnay.jpg 600w, https://res.cloudinary.com/julius-cloud/image/upload/w_900,h_600,c_fill,q_auto/v1682058016/drinks_u5mnay.jpg 900w"
+                    alt="Image of a colorful cocktail" sizes="(max-width: 768px) 50vw, 100vw">
+                <h2 class="drinks">Drinks</h2>
+            </section>
+        </a>
     </main>
     <footer>
         <section id="map"></section>
