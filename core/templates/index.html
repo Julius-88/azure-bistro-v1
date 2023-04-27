@@ -25,10 +25,10 @@
                     <li><a href="{% url 'index' %}" class="font-lora">Home</a></li>
                     <li class="dropdown"><a href="{% url 'menu' %}" class="font-lora">Menu</a>
                         <div class="dropdown-content">
-                            <a href="{% url 'menu' %}#appetizers">Appetizers</a>
-                            <a href="{% url 'menu' %}#main-courses">Main Courses</a>
-                            <a href="{% url 'menu' %}#desserts">Desserts</a>
-                            <a href="{% url 'menu' %}#drinks">Drinks</a>
+                            <a href="{% url 'menu' %}#appetizers" class="font-lora">Appetizers</a>
+                            <a href="{% url 'menu' %}#main-courses" class="font-lora">Main Courses</a>
+                            <a href="{% url 'menu' %}#desserts" class="font-lora">Desserts</a>
+                            <a href="{% url 'menu' %}#drinks" class="font-lora">Drinks</a>
                         </div>
                     </li>
                     <li><a href="{% url 'reserve' %}" class="font-lora">Reserve</a></li>
@@ -37,10 +37,18 @@
             </div>
         </nav>
     </header>
-    <section class="hero-page">
-        <img src="https://res.cloudinary.com/julius-cloud/image/upload/w_300,h_200,c_fill,q_auto/v1682058029/hero-img_hj2ahr.jpg"
-            srcset="https://res.cloudinary.com/julius-cloud/image/upload/w_300,h_200,c_fill,q_auto/v1682058029/hero-img_hj2ahr.jpg 300w, https://res.cloudinary.com/julius-cloud/image/upload/w_600,h_400,c_fill,q_auto/v1682058029/hero-img_hj2ahr.jpg 600w, https://res.cloudinary.com/julius-cloud/image/upload/w_900,h_600,c_fill,q_auto/v1682058029/hero-img_hj2ahr.jpg 900w"
-            alt="Image of the inside of the restaurant" sizes="(max-width: 768px) 50vw, 100vw">
+    <section class="hero-section">
+        <figure>
+            <img src="https://res.cloudinary.com/julius-cloud/image/upload/w_300,h_200,c_fill,q_auto/v1682058029/hero-img_hj2ahr.jpg"
+                srcset="https://res.cloudinary.com/julius-cloud/image/upload/w_300,h_200,c_fill,q_auto/v1682058029/hero-img_hj2ahr.jpg 300w, https://res.cloudinary.com/julius-cloud/image/upload/w_600,h_400,c_fill,q_auto/v1682058029/hero-img_hj2ahr.jpg 600w, https://res.cloudinary.com/julius-cloud/image/upload/w_900,h_600,c_fill,q_auto/v1682058029/hero-img_hj2ahr.jpg 900w"
+                alt="Image of the inside of the restaurant" sizes="(max-width: 768px) 50vw, 100vw">
+            <figcaption class="hero-text">
+                <h1 class="logo font-satisfy">Azure Bistro</h1>
+                <a href="{% url 'menu' %}" class="font-lora button">Menu</a>
+                <a href="{% url 'menu' %}#drinks" class="font-lora button">Drinks</a>
+                <a href="{% url 'reserve' %}" class="font-lora button">Reserve</a>
+            </figcaption>
+        </figure>
     </section>
     <main class="main">
         <a href=" {% url 'menu' %}#appetizers">

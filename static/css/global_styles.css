@@ -26,6 +26,24 @@ a:hover {
     color: #FF7F50;
 }
 
+/* --------------------------------------------------------BUTTONS */
+.button {
+    display: inline-block;
+    background-color: #FF7F50;
+    color: black;
+    padding: 50px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    margin: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.button:hover {
+    background-color: #e76b3c;
+    color: white;
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.6);
+}
+
 /* --------------------------------------------------------FONTS */
 .font-satisfy {
     font-family: 'Satisfy', cursive;
@@ -89,10 +107,11 @@ a:hover {
 
 /* --------------------------------------------------------HERO PAGE*/
 
-.hero-page img {
+.hero-section img {
     width: 100%;
     object-fit: cover;
 }
+
 
 
 /* --------------------------------------------------------MAIN CONTENT*/
