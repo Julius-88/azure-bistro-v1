@@ -1,8 +1,3 @@
-(function () {
-  // https://dashboard.emailjs.com/admin/account
-  emailjs.init(window.EMAILJS_PUBLIC_KEY);
-})();
-
 window.onload = function () {
   document
     .getElementById('contact-form')
