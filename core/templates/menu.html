@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/d5722e680c.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{% static 'css/global_styles.css' %} ">
+    <link rel="stylesheet" href="{% static 'css/menu_styles.css' %} ">
     <script src="{% static 'js/script.js' %}"></script>
     <title>Azure Bistro | Menu</title>
 </head>
@@ -33,20 +34,110 @@
             </ul>
         </div>
     </nav>
-    <section id="appetizers">
-        <h1>Appetizers Menu</h1>
-    </section>
+    <section id="menu">
+        <section>
+            <h2 id="appetizers">Appetizers Menu</h2>
+            <ul class="menu-list">
+                <li>
+                    <p class="dish-name">Bruschetta</p>
+                    <p class="dish-price">65 kr</p>
+                </li>
+                <li>
+                    <p class="dish-name">Caprese Salad</p>
+                    <p class="dish-price">80 kr</p>
+                </li>
+                <li>
+                    <p class="dish-name">Garlic Bread</p>
+                    <p class="dish-price">50 kr</p>
+                </li>
+                <li>
+                    <p class="dish-name">Stuffed Mushrooms</p>
+                    <p class="dish-price">75 kr</p>
+                </li>
+                <li>
+                    <p class="dish-name">Calamari</p>
+                    <p class="dish-price">90 kr</p>
+                </li>
+            </ul>
+        </section>
 
-    <section id="main-courses">
-        <h1>Main Course Menu</h1>
-    </section>
+        <section>
+            <h2 id="main-courses">Main Course Menu</h2>
+            <ul class="menu-list">
+                <li>
+                    <p class="dish-name">Grilled Salmon</p>
+                    <p class="dish-price">185 kr</p>
+                </li>
+                <li>
+                    <p class="dish-name">Pasta Primavera</p>
+                    <p class="dish-price">160 kr</p>
+                </li>
+                <li>
+                    <p class="dish-name">Chicken Alfredo</p>
+                    <p class="dish-price">155 kr</p>
+                </li>
+                <li>
+                    <p class="dish-name">Steak Frites</p>
+                    <p class="dish-price">220 kr</p>
+                </li>
+                <li>
+                    <p class="dish-name">Vegetarian Stir Fry</p>
+                    <p class="dish-price">140 kr</p>
+                </li>
+            </ul>
+        </section>
 
-    <section id="desserts">
-        <h1>Dessert Menu</h1>
-    </section>
+        <section>
+            <h2 id="desserts">Dessert Menu</h2>
+            <ul class="menu-list">
+                <li>
+                    <p class="dish-name">Tiramisu</p>
+                    <p class="dish-price">75 kr</p>
+                </li>
+                <li>
+                    <p class="dish-name">Chocolate Lava Cake</p>
+                    <p class="dish-price">85 kr</p>
+                </li>
+                <li>
+                    <p class="dish-name">Cheesecake</p>
+                    <p class="dish-price">80 kr</p>
+                </li>
+                <li>
+                    <p class="dish-name">Creme Brulee</p>
+                    <p class="dish-price">70 kr</p>
+                </li>
+                <li>
+                    <p class="dish-name">Apple Pie</p>
+                    <p class="dish-price">65 kr</p>
+                </li>
+            </ul>
+        </section>
 
-    <section id="drinks">
-        <h1>Drinks Menu</h1>
+        <section>
+            <h2 id="drinks">Drinks Menu</h2>
+            <ul class="menu-list">
+                <li>
+                    <p class="dish-name">Mojito</p>
+                    <p class="dish-price">100 kr</p>
+                </li>
+                <li>
+                    <p class="dish-name">Pina Colada</p>
+                    <p class="dish-price">110 kr</p>
+                </li>
+                <li>
+                    <p class="dish-name">Margarita</p>
+                    <p class="dish-price">105 kr</p>
+                </li>
+                <li>
+                    <p class="dish-name">Old Fashioned</p>
+                    <p class="dish-price">120 kr</p>
+                </li>
+                <li>
+                    <p class="dish-name">Gin and Tonic</p>
+                    <p class="dish-price">95 kr</p>
+                </li>
+            </ul>
+        </section>
     </section>
     <footer>
         <section id="map"></section>
@@ -68,7 +159,7 @@
             <p class="copyright">&copy; copyright 2023</p>
         </section>
     </footer>
-    <script async src="https://maps.googleapis.com/maps/api/js?key={{ google_maps_api_key }}&callback=initMap">
+    <script src="https://maps.googleapis.com/maps/api/js?key={{ google_maps_api_key }}&callback=initMap">
     </script>
 </body>
 

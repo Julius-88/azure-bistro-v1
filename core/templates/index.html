@@ -6,6 +6,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Welcome to Azure Bistro, the best restaurant in town! Our menu is full of delicious and unique dishes that are sure to delight your taste buds. Join us for a relaxing dining experience in our cozy and stylish restaurant. Reserve your table today!">
     <script src="https://kit.fontawesome.com/d5722e680c.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{% static 'css/global_styles.css' %} ">
     <script src="{% static 'js/script.js' %}"></script>
@@ -23,10 +25,10 @@
                     <li><a href="{% url 'index' %}" class="font-lora">Home</a></li>
                     <li class="dropdown"><a href="{% url 'menu' %}" class="font-lora">Menu</a>
                         <div class="dropdown-content">
-                            <a href="{% url 'menu' %}#appetizers">Appetizers</a>
-                            <a href="{% url 'menu' %}#main-courses">Main Courses</a>
-                            <a href="{% url 'menu' %}#desserts">Desserts</a>
-                            <a href="{% url 'menu' %}#drinks">Drinks</a>
+                            <a href="{% url 'menu' %}#appetizers" class="font-lora">Appetizers</a>
+                            <a href="{% url 'menu' %}#main-courses" class="font-lora">Main Courses</a>
+                            <a href="{% url 'menu' %}#desserts" class="font-lora">Desserts</a>
+                            <a href="{% url 'menu' %}#drinks" class="font-lora">Drinks</a>
                         </div>
                     </li>
                     <li><a href="{% url 'reserve' %}" class="font-lora">Reserve</a></li>
@@ -35,32 +37,53 @@
             </div>
         </nav>
     </header>
+    <section class="hero-section">
+        <figure>
+            <img src="https://res.cloudinary.com/julius-cloud/image/upload/w_300,h_200,c_fill,q_auto/v1682058029/hero-img_hj2ahr.jpg"
+                srcset="https://res.cloudinary.com/julius-cloud/image/upload/w_300,h_200,c_fill,q_auto/v1682058029/hero-img_hj2ahr.jpg 300w, https://res.cloudinary.com/julius-cloud/image/upload/w_600,h_400,c_fill,q_auto/v1682058029/hero-img_hj2ahr.jpg 600w, https://res.cloudinary.com/julius-cloud/image/upload/w_900,h_600,c_fill,q_auto/v1682058029/hero-img_hj2ahr.jpg 900w"
+                alt="Image of the inside of the restaurant" sizes="(max-width: 768px) 50vw, 100vw">
+            <figcaption class="hero-text">
+                <h1 class="logo font-satisfy">Azure Bistro</h1>
+                <a href="{% url 'menu' %}" class="font-lora button">Menu</a>
+                <a href="{% url 'menu' %}#drinks" class="font-lora button">Drinks</a>
+                <a href="{% url 'reserve' %}" class="font-lora button">Reserve</a>
+            </figcaption>
+        </figure>
+    </section>
     <main class="main">
-        <section class="content-section ">
-            <h2 class="appetizer">Appetizers</h2>
-            <img src="https://res.cloudinary.com/julius-cloud/image/upload/w_300,h_200,c_fill,q_auto/v1682058051/appetizer_pygzpl.jpg"
-                class="image"
-                srcset="https://res.cloudinary.com/julius-cloud/image/upload/w_300,h_200,c_fill,q_auto/v1682058051/appetizer_pygzpl.jpg 300w, https://res.cloudinary.com/julius-cloud/image/upload/w_600,h_400,c_fill,q_auto/v1682058051/appetizer_pygzpl.jpg 600w, https://res.cloudinary.com/julius-cloud/image/upload/w_900,h_600,c_fill,q_auto/v1682058051/appetizer_pygzpl.jpg 900w"
-                alt="Image of a appetizer" sizes="(max-width: 768px) 50vw, 100vw">
-        </section>
-        <section class="content-section ">
-            <img src="https://res.cloudinary.com/julius-cloud/image/upload/w_300,h_200,c_fill,q_auto/v1682058037/main-course_v3ugaw.jpg"
-                srcset="https://res.cloudinary.com/julius-cloud/image/upload/w_300,h_200,c_fill,q_auto/v1682058037/main-course_v3ugaw.jpg 300w, https://res.cloudinary.com/julius-cloud/image/upload/w_600,h_400,c_fill,q_auto/v1682058037/main-course_v3ugaw.jpg 600w, https://res.cloudinary.com/julius-cloud/image/upload/w_900,h_600,c_fill,q_auto/v1682058037/main-course_v3ugaw.jpg 900w"
-                alt="Image of a signature main course" sizes="(max-width: 768px) 50vw, 100vw">
-            <h2 class="main-course">Main Course</h2>
-        </section>
-        <section class="content-section">
-            <h2 class="dessert">Dessert</h2>
-            <img src="https://res.cloudinary.com/julius-cloud/image/upload/w_300,h_200,c_fill,q_auto/v1682058009/dessert_vvt3g7.jpg"
-                srcset="https://res.cloudinary.com/julius-cloud/image/upload/w_300,h_200,c_fill,q_auto/v1682058009/dessert_vvt3g7.jpg 300w, https://res.cloudinary.com/julius-cloud/image/upload/w_600,h_400,c_fill,q_auto/v1682058009/dessert_vvt3g7.jpg 600w, https://res.cloudinary.com/julius-cloud/image/upload/w_900,h_600,c_fill,q_auto/v1682058009/dessert_vvt3g7.jpg 900w"
-                alt="Image of a tiramisu dessert" sizes="(max-width: 768px) 50vw, 100vw">
-        </section>
-        <section class="content-section">
-            <img src="https://res.cloudinary.com/julius-cloud/image/upload/w_300,h_200,c_fill,q_auto/v1682058016/drinks_u5mnay.jpg"
-                srcset="https://res.cloudinary.com/julius-cloud/image/upload/w_300,h_200,c_fill,q_auto/v1682058016/drinks_u5mnay.jpg 300w, https://res.cloudinary.com/julius-cloud/image/upload/w_600,h_400,c_fill,q_auto/v1682058016/drinks_u5mnay.jpg 600w, https://res.cloudinary.com/julius-cloud/image/upload/w_900,h_600,c_fill,q_auto/v1682058016/drinks_u5mnay.jpg 900w"
-                alt="Image of a colorful cocktail" sizes="(max-width: 768px) 50vw, 100vw">
-            <h2 class="drinks">Drinks</h2>
-        </section>
+        <a href=" {% url 'menu' %}#appetizers">
+            <section class="content-section ">
+                <h2 class="appetizer font-lora">Appetizers</h2>
+                <img src="https://res.cloudinary.com/julius-cloud/image/upload/w_300,h_200,c_fill,q_auto/v1682058051/appetizer_pygzpl.jpg"
+                    class="image"
+                    srcset="https://res.cloudinary.com/julius-cloud/image/upload/w_300,h_200,c_fill,q_auto/v1682058051/appetizer_pygzpl.jpg 300w, https://res.cloudinary.com/julius-cloud/image/upload/w_600,h_400,c_fill,q_auto/v1682058051/appetizer_pygzpl.jpg 600w, https://res.cloudinary.com/julius-cloud/image/upload/w_900,h_600,c_fill,q_auto/v1682058051/appetizer_pygzpl.jpg 900w"
+                    alt="Image of a appetizer" sizes="(max-width: 768px) 50vw, 100vw">
+            </section>
+        </a>
+        <a href="{% url 'menu' %}#main-courses">
+            <section class="content-section ">
+                <img src="https://res.cloudinary.com/julius-cloud/image/upload/w_300,h_200,c_fill,q_auto/v1682058037/main-course_v3ugaw.jpg"
+                    srcset="https://res.cloudinary.com/julius-cloud/image/upload/w_300,h_200,c_fill,q_auto/v1682058037/main-course_v3ugaw.jpg 300w, https://res.cloudinary.com/julius-cloud/image/upload/w_600,h_400,c_fill,q_auto/v1682058037/main-course_v3ugaw.jpg 600w, https://res.cloudinary.com/julius-cloud/image/upload/w_900,h_600,c_fill,q_auto/v1682058037/main-course_v3ugaw.jpg 900w"
+                    alt="Image of a signature main course" sizes="(max-width: 768px) 50vw, 100vw">
+                <h2 class="main-course font-lora">Main Course</h2>
+            </section>
+        </a>
+        <a href="{% url 'menu' %}#desserts">
+            <section class="content-section">
+                <h2 class="dessert font-lora">Dessert</h2>
+                <img src="https://res.cloudinary.com/julius-cloud/image/upload/w_300,h_200,c_fill,q_auto/v1682058009/dessert_vvt3g7.jpg"
+                    srcset="https://res.cloudinary.com/julius-cloud/image/upload/w_300,h_200,c_fill,q_auto/v1682058009/dessert_vvt3g7.jpg 300w, https://res.cloudinary.com/julius-cloud/image/upload/w_600,h_400,c_fill,q_auto/v1682058009/dessert_vvt3g7.jpg 600w, https://res.cloudinary.com/julius-cloud/image/upload/w_900,h_600,c_fill,q_auto/v1682058009/dessert_vvt3g7.jpg 900w"
+                    alt="Image of a tiramisu dessert" sizes="(max-width: 768px) 50vw, 100vw">
+            </section>
+        </a>
+        <a href="{% url 'menu' %}#drinks">
+            <section class="content-section">
+                <img src="https://res.cloudinary.com/julius-cloud/image/upload/w_300,h_200,c_fill,q_auto/v1682058016/drinks_u5mnay.jpg"
+                    srcset="https://res.cloudinary.com/julius-cloud/image/upload/w_300,h_200,c_fill,q_auto/v1682058016/drinks_u5mnay.jpg 300w, https://res.cloudinary.com/julius-cloud/image/upload/w_600,h_400,c_fill,q_auto/v1682058016/drinks_u5mnay.jpg 600w, https://res.cloudinary.com/julius-cloud/image/upload/w_900,h_600,c_fill,q_auto/v1682058016/drinks_u5mnay.jpg 900w"
+                    alt="Image of a colorful cocktail" sizes="(max-width: 768px) 50vw, 100vw">
+                <h2 class="drinks font-lora">Drinks</h2>
+            </section>
+        </a>
     </main>
     <footer>
         <section id="map"></section>
@@ -82,7 +105,7 @@
             <p class="copyright">&copy; copyright 2023</p>
         </section>
     </footer>
-    <script async src="https://maps.googleapis.com/maps/api/js?key={{ google_maps_api_key }}&callback=initMap">
+    <script src="https://maps.googleapis.com/maps/api/js?key={{ google_maps_api_key }}&callback=initMap">
     </script>
 </body>
 
