@@ -8,9 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/d5722e680c.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{% static 'css/global_styles.css' %} ">
-    <script src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
-    <script src="{% static 'js/script.js' %}"></script>
-    <script src="{% static 'js/contact.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/contact_styles.css' %} ">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <title>Azure Bistro | Contact</title>
 </head>
 
@@ -35,24 +34,15 @@
             </ul>
         </div>
     </nav>
-    <form id="contact-form" onsubmit="return sendEmail(this)">
-        <div>
-            <label for="name">Name</label>
-            <input type="text" id="name" name="user_name" required>
-        </div>
-        <div>
-            <label for="email">Email</label>
-            <input type="email" id="email" name="user_email" required>
-        </div>
-        <div>
-            <label for="subject">Subject</label>
-            <input type="text" id="subject" name="subject" required>
-        </div>
-        <div>
-            <label for="message">Message</label>
-            <textarea id="message" name="message" required></textarea>
-        </div>
-        <button type="submit">Send Message</button>
+    <form id="contact-form">
+        <input type="hidden" name="contact_number">
+        <label>Name</label>
+        <input type="text" name="user_name" required>
+        <label>Email</label>
+        <input type="email" name="user_email" required>
+        <label>Message</label>
+        <textarea name="message" required></textarea>
+        <input type="submit" value="Send" id="submit-button">
     </form>
     <footer>
         <section id="map"></section>
@@ -74,7 +64,12 @@
             <p class="copyright">&copy; copyright 2023</p>
         </section>
     </footer>
-    <script async src="https://maps.googleapis.com/maps/api/js?key={{ google_maps_api_key }}&callback=initMap">
+    <script>
+        window.EMAILJS_PUBLIC_KEY = '{{ EMAILJS_PUBLIC_KEY }}';
+    </script>
+    <script src="{% static 'js/script.js' %}"></script>
+    <script src="{% static 'js/contact.js' %}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key={{ google_maps_api_key }}&callback=initMap">
     </script>
 </body>
 
