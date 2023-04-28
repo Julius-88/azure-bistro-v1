@@ -40,9 +40,9 @@
     <section class="hero-section">
         <h1 class="logo font-satisfy">Azure Bistro</h1>
         <div class="hero-button-container">
-            <a href="{% url 'menu' %}" class="font-lora button hero-button">Menu</a>
-            <a href="{% url 'menu' %}#drinks" class="font-lora button hero-button">Drinks</a>
-            <a href="{% url 'reserve' %}" class="font-lora button hero-button">Reserve</a>
+            <a href="{% url 'menu' %}" class="button hero-button">Menu</a>
+            <a href="{% url 'menu' %}#drinks" class="button hero-button">Drinks</a>
+            <a href="{% url 'reserve' %}" class="button hero-button">Reserve</a>
         </div>
         <div class="hours">
             <p class="font-lato">Mon - Fri: 16:00 - 02:00</p>
@@ -52,7 +52,7 @@
     <main class="main">
         <a href=" {% url 'menu' %}#appetizers">
             <section class="content-section ">
-                <h2 class="appetizer font-lora">Appetizers</h2>
+                <h2 class="appetizer font-lora">APPETIZERS</h2>
                 <img src="https://res.cloudinary.com/julius-cloud/image/upload/w_300,h_200,c_fill,q_auto/v1682058051/appetizer_pygzpl.jpg"
                     class="image"
                     srcset="https://res.cloudinary.com/julius-cloud/image/upload/w_300,h_200,c_fill,q_auto/v1682058051/appetizer_pygzpl.jpg 300w, https://res.cloudinary.com/julius-cloud/image/upload/w_600,h_400,c_fill,q_auto/v1682058051/appetizer_pygzpl.jpg 600w, https://res.cloudinary.com/julius-cloud/image/upload/w_900,h_600,c_fill,q_auto/v1682058051/appetizer_pygzpl.jpg 900w"
@@ -64,12 +64,12 @@
                 <img src="https://res.cloudinary.com/julius-cloud/image/upload/w_300,h_200,c_fill,q_auto/v1682058037/main-course_v3ugaw.jpg"
                     srcset="https://res.cloudinary.com/julius-cloud/image/upload/w_300,h_200,c_fill,q_auto/v1682058037/main-course_v3ugaw.jpg 300w, https://res.cloudinary.com/julius-cloud/image/upload/w_600,h_400,c_fill,q_auto/v1682058037/main-course_v3ugaw.jpg 600w, https://res.cloudinary.com/julius-cloud/image/upload/w_900,h_600,c_fill,q_auto/v1682058037/main-course_v3ugaw.jpg 900w"
                     alt="Image of a signature main course" sizes="(max-width: 768px) 50vw, 100vw">
-                <h2 class="main-course font-lora">Main Course</h2>
+                <h2 class="main-course font-lora">MAIN COURSES</h2>
             </section>
         </a>
         <a href="{% url 'menu' %}#desserts">
             <section class="content-section">
-                <h2 class="dessert font-lora">Dessert</h2>
+                <h2 class="dessert font-lora">DESSERTS</h2>
                 <img src="https://res.cloudinary.com/julius-cloud/image/upload/w_300,h_200,c_fill,q_auto/v1682058009/dessert_vvt3g7.jpg"
                     srcset="https://res.cloudinary.com/julius-cloud/image/upload/w_300,h_200,c_fill,q_auto/v1682058009/dessert_vvt3g7.jpg 300w, https://res.cloudinary.com/julius-cloud/image/upload/w_600,h_400,c_fill,q_auto/v1682058009/dessert_vvt3g7.jpg 600w, https://res.cloudinary.com/julius-cloud/image/upload/w_900,h_600,c_fill,q_auto/v1682058009/dessert_vvt3g7.jpg 900w"
                     alt="Image of a tiramisu dessert" sizes="(max-width: 768px) 50vw, 100vw">
@@ -80,10 +80,14 @@
                 <img src="https://res.cloudinary.com/julius-cloud/image/upload/w_300,h_200,c_fill,q_auto/v1682058016/drinks_u5mnay.jpg"
                     srcset="https://res.cloudinary.com/julius-cloud/image/upload/w_300,h_200,c_fill,q_auto/v1682058016/drinks_u5mnay.jpg 300w, https://res.cloudinary.com/julius-cloud/image/upload/w_600,h_400,c_fill,q_auto/v1682058016/drinks_u5mnay.jpg 600w, https://res.cloudinary.com/julius-cloud/image/upload/w_900,h_600,c_fill,q_auto/v1682058016/drinks_u5mnay.jpg 900w"
                     alt="Image of a colorful cocktail" sizes="(max-width: 768px) 50vw, 100vw">
-                <h2 class="drinks font-lora">Drinks</h2>
+                <h2 class="drinks font-lora">DRINKS</h2>
             </section>
         </a>
     </main>
+    <section class="button-container">
+        <a href="{% url 'reserve' %}"><button class="button">RESERVE</button></a>
+        <a href="{% url 'contact' %}"><button class="button">CONTACT</button></a>
+    </section>
     <footer>
         <section id="map"></section>
         <section class="footer-middle">
