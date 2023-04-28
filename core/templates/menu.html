@@ -14,29 +14,31 @@
 </head>
 
 <body>
-    <nav class="navbar">
-        <div>
-            <a href="{% url 'index' %}" class="font-satisfy logo">Azure Bistro</a>
-        </div>
-        <div>
-            <ul>
-                <li><a href="{% url 'index' %}" class="font-lora">Home</a></li>
-                <li class="dropdown"><a href="{% url 'menu' %}" class="font-lora">Menu</a>
-                    <div class="dropdown-content">
-                        <a href="#appetizers">Appetizers</a>
-                        <a href="#main-courses">Main Courses</a>
-                        <a href="#desserts">Desserts</a>
-                        <a href="#drinks">Drinks</a>
-                    </div>
-                </li>
-                <li><a href="{% url 'reserve' %}" class="font-lora">Reserve</a></li>
-                <li><a href="{% url 'contact' %}" class="font-lora">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+    <header>
+        <nav class="navbar">
+            <div>
+                <a href="{% url 'index' %}" class="font-satisfy logo">Azure Bistro</a>
+            </div>
+            <div>
+                <ul>
+                    <li><a href="{% url 'index' %}" class="font-lora">Home</a></li>
+                    <li class="dropdown"><a href="{% url 'menu' %}" class="font-lora">Menu</a>
+                        <div class="dropdown-content">
+                            <a href="#appetizers">Appetizers</a>
+                            <a href="#main-courses">Main Courses</a>
+                            <a href="#desserts">Desserts</a>
+                            <a href="#drinks">Drinks</a>
+                        </div>
+                    </li>
+                    <li><a href="{% url 'reserve' %}" class="font-lora">Reserve</a></li>
+                    <li><a href="{% url 'contact' %}" class="font-lora">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
     <section id="menu">
         <section>
-            <h2 id="appetizers">Appetizers Menu</h2>
+            <h2 id="appetizers" class="font-lora">Appetizers Menu</h2>
             <ul class="menu-list">
                 <li>
                     <p class="dish-name">Bruschetta</p>
@@ -62,7 +64,7 @@
         </section>
 
         <section>
-            <h2 id="main-courses">Main Course Menu</h2>
+            <h2 id="main-courses" class="font-lora">Main Course Menu</h2>
             <ul class="menu-list">
                 <li>
                     <p class="dish-name">Grilled Salmon</p>
@@ -88,7 +90,7 @@
         </section>
 
         <section>
-            <h2 id="desserts">Dessert Menu</h2>
+            <h2 id="desserts" class="font-lora">Dessert Menu</h2>
             <ul class="menu-list">
                 <li>
                     <p class="dish-name">Tiramisu</p>
@@ -114,7 +116,7 @@
         </section>
 
         <section>
-            <h2 id="drinks">Drinks Menu</h2>
+            <h2 id="drinks" class="font-lora">Drinks Menu</h2>
             <ul class="menu-list">
                 <li>
                     <p class="dish-name">Mojito</p>
@@ -142,8 +144,8 @@
     <footer>
         <section id="map"></section>
         <section class="footer-middle">
-            <p>Arenavägen 69, 121 77 Johanneshov</p>
-            <p>Tel: 070-4567187</p>
+            <p class="font-lato">Arenavägen 69, 121 77 Johanneshov</p>
+            <p class="font-lato">Tel: 070-4567187</p>
         </section>
         <section class="footer-right">
             <div class="social-media-container">
@@ -156,7 +158,7 @@
                 <a href="https://www.twitter.com/" target="_blank" rel="noopener noreferrer" class="social-media"><i
                         class="fab fa-twitter fa-lg"></i></a>
             </div>
-            <p class="copyright">&copy; copyright 2023</p>
+            <p class="copyright font-lato">&copy; copyright 2023</p>
         </section>
     </footer>
     <script src="https://maps.googleapis.com/maps/api/js?key={{ google_maps_api_key }}&callback=initMap">
