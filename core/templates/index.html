@@ -38,17 +38,16 @@
         </nav>
     </header>
     <section class="hero-section">
-        <figure>
-            <img src="https://res.cloudinary.com/julius-cloud/image/upload/w_300,h_200,c_fill,q_auto/v1682058029/hero-img_hj2ahr.jpg"
-                srcset="https://res.cloudinary.com/julius-cloud/image/upload/w_300,h_200,c_fill,q_auto/v1682058029/hero-img_hj2ahr.jpg 300w, https://res.cloudinary.com/julius-cloud/image/upload/w_600,h_400,c_fill,q_auto/v1682058029/hero-img_hj2ahr.jpg 600w, https://res.cloudinary.com/julius-cloud/image/upload/w_900,h_600,c_fill,q_auto/v1682058029/hero-img_hj2ahr.jpg 900w"
-                alt="Image of the inside of the restaurant" sizes="(max-width: 768px) 50vw, 100vw">
-            <figcaption class="hero-text">
-                <h1 class="logo font-satisfy">Azure Bistro</h1>
-                <a href="{% url 'menu' %}" class="font-lora button">Menu</a>
-                <a href="{% url 'menu' %}#drinks" class="font-lora button">Drinks</a>
-                <a href="{% url 'reserve' %}" class="font-lora button">Reserve</a>
-            </figcaption>
-        </figure>
+        <h1 class="logo font-satisfy">Azure Bistro</h1>
+        <div class="hero-button-container">
+            <a href="{% url 'menu' %}" class="font-lora button hero-button">Menu</a>
+            <a href="{% url 'menu' %}#drinks" class="font-lora button hero-button">Drinks</a>
+            <a href="{% url 'reserve' %}" class="font-lora button hero-button">Reserve</a>
+        </div>
+        <div class="hours">
+            <p class="font-lato">Mon - Fri: 16:00 - 02:00</p>
+            <p class="font-lato">Sat - Sun: 18:00 - 00:00</p>
+        </div>
     </section>
     <main class="main">
         <a href=" {% url 'menu' %}#appetizers">
@@ -88,8 +87,8 @@
     <footer>
         <section id="map"></section>
         <section class="footer-middle">
-            <p>Arenavägen 69, 121 77 Johanneshov</p>
-            <p>Tel: 070-4567187</p>
+            <p class="font-lato">Arenavägen 69, 121 77 Johanneshov</p>
+            <p class="font-lato">Tel: 070-4567187</p>
         </section>
         <section class="footer-right">
             <div class="social-media-container">
@@ -102,7 +101,7 @@
                 <a href="https://www.twitter.com/" target="_blank" rel="noopener noreferrer" class="social-media"><i
                         class="fab fa-twitter fa-lg"></i></a>
             </div>
-            <p class="copyright">&copy; copyright 2023</p>
+            <p class="copyright font-lato">&copy; copyright 2023</p>
         </section>
     </footer>
     <script src="https://maps.googleapis.com/maps/api/js?key={{ google_maps_api_key }}&callback=initMap">

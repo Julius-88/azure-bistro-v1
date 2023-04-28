@@ -63,15 +63,18 @@ a:hover {
 
 /* --------------------------------------------------------NAVBAR */
 
+header {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+
 .navbar {
     background-color: #1C2E4A;
     display: flex;
     justify-content: space-between;
     align-items: stretch;
     padding: 15px;
-    position: sticky;
-    top: 0;
-    z-index: 999;
     width: 100%;
 }
 
@@ -106,12 +109,43 @@ a:hover {
 
 /* --------------------------------------------------------HERO PAGE*/
 
-.hero-section img {
+.hero-section {
+    background: no-repeat center center / cover url('https://res.cloudinary.com/julius-cloud/image/upload/w_300,h_200,c_fill,q_auto/v1682058029/hero-img_hj2ahr.jpg');
     width: 100%;
-    object-fit: cover;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
 
+.hero-section h1 {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    font-weight: lighter;
+}
 
+.hero-button-container {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.hours {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.hours p {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.hero-button {
+    padding: 20px;
+}
 
 /* --------------------------------------------------------MAIN CONTENT*/
 
