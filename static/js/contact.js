@@ -1,3 +1,8 @@
+(function () {
+  // https://dashboard.emailjs.com/admin/account
+  emailjs.init('reJOcVVShhJl7jLGK');
+})();
+
 window.onload = function () {
   document
     .getElementById('contact-form')
