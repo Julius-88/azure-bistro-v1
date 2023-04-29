@@ -44,12 +44,18 @@
             <input type="date" id="date" name="date">
             <br>
             <label for="time">Time:</label>
-            <input type="time" id="time" name="time">
+            <select id="time" name="time">
+            </select>
             <br>
             <label for="guests">Number of guests:</label>
-            <input type="number" id="guests" name="guests" min="1" max="4">
+            <select id="guests" name="guests">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
             <br>
-            <button type="submit" class="submit-btn">Next</button>
+            <button type="submit" class="button">Next</button>
         </form>
     </section>
     <footer>
@@ -80,6 +86,7 @@
             localStorage.setItem('reservation_guests', event.target.guests.value);
         });
     </script>
+    <script src="{% static 'js/form_customization.js' %}"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key={{ google_maps_api_key }}&callback=initMap">
     </script>
 </body>
