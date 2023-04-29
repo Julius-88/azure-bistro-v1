@@ -9,12 +9,10 @@ window.onload = function () {
       event.preventDefault();
       // generate a five digit number for the contact_number variable
       this.contact_number.value = (Math.random() * 100000) | 0;
-      emailjs.sendForm('service_azure', 'template_azure', this).then(
+      emailjs.sendForm('service_azure', 'template_confirm', this).then(
         function () {
           alert('Your message has been sent!');
-          setTimeout(() => {
-            event.target.reset();
-          }, 10);
+          window.location.href = '/reserve/reserve/';
         },
         function (error) {
           alert('Your message could not be sent.');
