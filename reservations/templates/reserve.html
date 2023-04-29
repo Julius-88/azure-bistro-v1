@@ -38,7 +38,7 @@
     </header>
     <section class="reservation-form">
         <h2>Reserve a table</h2>
-        <form method="POST" action="{% url 'reserve_contact' %}">
+        <form method="POST" action="{% url 'reserve_contact' %}" id="reservation-info">
             {% csrf_token %}
             <label for="date">Date:</label>
             <input type="date" id="date" name="date">
@@ -72,6 +72,14 @@
             <p class="copyright">&copy; copyright 2023</p>
         </section>
     </footer>
+    <script>
+        document.getElementById('reservation-info').addEventListener('submit', function (event) {
+            // Store the reservation details in local storage
+            localStorage.setItem('reservation_date', event.target.date.value);
+            localStorage.setItem('reservation_time', event.target.time.value);
+            localStorage.setItem('reservation_guests', event.target.guests.value);
+        });
+    </script>
     <script src="https://maps.googleapis.com/maps/api/js?key={{ google_maps_api_key }}&callback=initMap">
     </script>
 </body>

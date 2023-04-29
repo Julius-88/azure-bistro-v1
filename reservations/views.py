@@ -23,7 +23,10 @@ def reserve(request):
     return render(request, 'reserve.html', context)
 
 def reserve_contact(request):
-    return render(request, 'reserve_contact.html')
+    context = {
+        'google_maps_api_key': settings.GOOGLE_MAPS_API_KEY,
+    }
+    return render(request, 'reserve_contact.html', context)
 
 
 def confirm(request, reservation_id):

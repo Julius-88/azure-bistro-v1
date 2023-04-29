@@ -3,12 +3,26 @@
 })();
 
 window.onload = function () {
+  // Get the reservation details from local storage
+  const reservationDate = localStorage.getItem('reservation_date');
+  const reservationTime = localStorage.getItem('reservation_time');
+  const reservationGuests = localStorage.getItem('reservation_guests');
+
+  // Set the reservation details as hidden inputs in the form
+  document.getElementById('reservation_date').value = reservationDate;
+  document.getElementById('reservation_time').value = reservationTime;
+  document.getElementById('reservation_guests').value = reservationGuests;
+
   document
     .getElementById('contact-form')
     .addEventListener('submit', function (event) {
       event.preventDefault();
       // generate a five digit number for the contact_number variable
       this.contact_number.value = (Math.random() * 100000) | 0;
+
+      console.log('reservation_date:', this.reservation_date.value);
+      console.log('reservation_time:', this.reservation_time.value);
+      console.log('reservation_guests:', this.reservation_guests.value);
       emailjs.sendForm('service_azure', 'template_confirm', this).then(
         function () {
           alert('Your message has been sent!');
