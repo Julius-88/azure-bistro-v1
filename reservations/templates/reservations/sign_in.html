@@ -9,8 +9,8 @@
     <script src="https://kit.fontawesome.com/d5722e680c.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{% static 'css/global_styles.css' %} ">
     <link rel="stylesheet" href="{% static 'css/form_styles.css' %} ">
-    <script src="{% static 'js/script.js' %}"></script>
-    <title>Azure Bistro | Reservations</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <title>Azure Bistro | Contact</title>
 </head>
 
 <body>
@@ -37,26 +37,22 @@
         </nav>
     </header>
     <main id="form-container">
-        <h1 class="font-lora">Manage Reservation</h1>
-        <form id="form" method="POST">
+        <h1 class="font-lora">SIGN IN</h1>
+        <form id="form" method="POST" action="{% url 'reserve' %}">
             {% csrf_token %}
-            <label for="date">Date:</label>
-            <input type="date" id="date" name="date">
-            <label for="time">Time:</label>
-            <select id="time" name="time">
-            </select>
-            <label for="guests">Number of guests:</label>
-            <select id="guests" name="guests">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-            </select>
+            <label for="user_name" class="font-lato label">User Name</label>
+            <input type="text" name="user_name" id="user_name" required autocomplete="username">
+            <label for="password" class="font-lato label">Password:</label>
+            <input type="password" name="password" id="password" required autocomplete="password">
             <div class="submit-button-container">
-                <input type="submit" value="update" id="submit-button" class="font-lato button update-button">
-                <input type="submit" value="cancel" id="submit-button" class="font-lato button cancel-button">
+                <input type="submit" value="login" id="submit-button" class="font-lato button">
             </div>
         </form>
+        <div class="register-container">
+            <p class="font-lato">You need to create an account before you can make a reservation</p>
+            <button class="font-lato button register-button">create
+                account</button>
+        </div>
     </main>
     <footer>
         <section id="map"></section>
@@ -78,6 +74,7 @@
             <p class="copyright">&copy; copyright 2023</p>
         </section>
     </footer>
+    <script src="{% static 'js/script.js' %}"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key={{ google_maps_api_key }}&callback=initMap">
     </script>
 </body>
