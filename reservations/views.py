@@ -20,23 +20,18 @@ def reserve(request):
     context = {
         'google_maps_api_key': settings.GOOGLE_MAPS_API_KEY,
     }
-    return render(request, 'reserve.html', context)
+    return render(request, 'reservations/reserve.html', context)
 
 def reserve_contact(request):
     context = {
         'google_maps_api_key': settings.GOOGLE_MAPS_API_KEY,
     }
-    return render(request, 'reserve_contact.html', context)
-
-
-def confirm(request, reservation_id):
-    reservation = Reservation.objects.get(pk=reservation_id)
-    return render(request, 'confirm.html', {'reservation': reservation})
+    return render(request, 'reservations/reserve_contact.html', context)
 
 def admin_view(request):
     # Add authentication check
     reservations = Reservation.objects.all().order_by('-date', '-time')
-    return render(request, 'admin_view.html', {'reservations': reservations})
+    return render(request, 'reservations/admin_view.html', {'reservations': reservations})
 
 # Modifying Reservation
 def manage_reservation(request, reservation_number):
@@ -46,7 +41,7 @@ def manage_reservation(request, reservation_number):
         raise Http404("Reservation does not exist")
 
     # Render the reservation management page and pass the reservation data
-    return render(request, 'manage_reservation.html', {'reservation': reservation})
+    return render(request, 'reservations/manage_reservation.html', {'reservation': reservation})
 
 def update_reservation(request, reservation_number):
     reservation = get_object_or_404(Reservation, reservation_number=reservation_number)
