@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{% static 'css/global_styles.css' %} ">
     <link rel="stylesheet" href="{% static 'css/form_styles.css' %} ">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="{% static 'js/script.js' %}"></script>
     <title>Azure Bistro | Contact</title>
 </head>
 
@@ -38,9 +39,8 @@
     </header>
     <main id="form-container">
         <h1 class="font-lora">CONTACT US</h1>
-        <form id="form">
+        <form id="form" method="POST">
             {% csrf_token %}
-            <input type="hidden" name="contact_number">
             <label for="user_name" class="font-lato label">Name:</label>
             <input type="text" name="user_name" id="user_name" required>
             <label for="user_email" class="font-lato label">Email:</label>
@@ -72,7 +72,6 @@
             <p class="copyright">&copy; copyright 2023</p>
         </section>
     </footer>
-    <script src="{% static 'js/script.js' %}"></script>
     <script src="{% static 'js/contact.js' %}"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key={{ google_maps_api_key }}&callback=initMap">
     </script>
