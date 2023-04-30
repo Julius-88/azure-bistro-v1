@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/d5722e680c.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{% static 'css/global_styles.css' %} ">
-    <link rel="stylesheet" href="{% static 'css/reserve_styles.css' %} ">
+    <link rel="stylesheet" href="{% static 'css/form_styles.css' %} ">
     <script src="{% static 'js/script.js' %}"></script>
     <title>Azure Bistro | Reservations</title>
 </head>
@@ -36,17 +36,15 @@
             </div>
         </nav>
     </header>
-    <section class="reservation-form">
-        <h2>Reserve a table</h2>
-        <form method="POST" action="{% url 'reserve_contact' %}" id="reservation-info">
+    <main id="form-container">
+        <h1 class="font-lora">Reserve a table</h1>
+        <form id="form" method="POST" action="{% url 'reserve_contact' %}" id="reservation-info">
             {% csrf_token %}
             <label for="date">Date:</label>
             <input type="date" id="date" name="date">
-            <br>
             <label for="time">Time:</label>
             <select id="time" name="time">
             </select>
-            <br>
             <label for="guests">Number of guests:</label>
             <select id="guests" name="guests">
                 <option value="1">1</option>
@@ -54,10 +52,11 @@
                 <option value="3">3</option>
                 <option value="4">4</option>
             </select>
-            <br>
-            <button type="submit" class="button">Next</button>
+            <div class="submit-button-container">
+                <input type="submit" value="Next" id="submit-button" class="font-lato button">
+            </div>
         </form>
-    </section>
+    </main>
     <footer>
         <section id="map"></section>
         <section class="footer-middle">
