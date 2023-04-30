@@ -36,13 +36,9 @@
         </nav>
     </header>
     <h1>Manage Reservation</h1>
-    <p>Reservation Number: {{ reservation.reservation_number }}</p>
-    <p>Date: {{ reservation.date }}</p>
-    <p>Time: {{ reservation.time }}</p>
-    <p>Guests: {{ reservation.guests }}</p>
 
     <h2>Update Reservation</h2>
-    <form method="post" action="{% url 'update_reservation' reservation.reservation_number %}">
+    <form method="POST">
         {% csrf_token %}
         <label for="date">Date:</label>
         <input type="date" name="date" value="{{ reservation.date }}" required>
@@ -54,7 +50,7 @@
     </form>
 
     <h2>Cancel Reservation</h2>
-    <form method="post" action="{% url 'cancel_reservation' reservation.reservation_number %}">
+    <form method="POST">
         {% csrf_token %}
         <button type="submit">Cancel Reservation</button>
     </form>
