@@ -38,14 +38,14 @@
     </header>
     <main id="form-container">
         <h1 class="font-lora">register</h1>
-        <form id="form" method="POST" action="{% url 'reserve' %}">
+        <form id="form" method="POST">
             {% csrf_token %}
-            <label for="user_name" class="font-lato label">User Name</label>
-            <input type="text" name="user_name" id="user_name" required autocomplete="username">
+            <label for="user_name" class="font-lato label">User Name:</label>
+            <input type="text" name="user_name" id="user_name" required>
             <label for="password" class="font-lato label">Password:</label>
-            <input type="password" name="password" id="password" required autocomplete="password">
+            <input type="password" name="password" id="password" required>
             <div class="submit-button-container">
-                <input type="submit" value="login" id="submit-button" class="font-lato button">
+                <input type="submit" value="save" id="submit-button" class="font-lato button">
             </div>
         </form>
     </main>

@@ -2,6 +2,8 @@ import random
 from django.shortcuts import render, redirect
 from django.conf import settings
 from .models import Reservation
+from django.contrib.auth.models import User
+
 
 def reserve(request):
     if request.method == 'POST':
@@ -33,15 +35,31 @@ def sign_in(request):
     return render(request, 'reservations/sign_in.html', context)
 
 def register(request):
-    context = {
-        'google_maps_api_key': settings.GOOGLE_MAPS_API_KEY,
-    }
-    return render(request, 'reservations/register.html', context)
+    if request.method == 'POST':
+        # Get the username and password from the form data
+        user_name = request.POST['user_name']
+        password = request.POST['password']
+        # Check if the username is already taken
+        if User.objects.filter(username=user_name).exists():
+            # Return an error message
+            context = {
+                'error_message': 'Username is already taken.',
+                'google_maps_api_key': settings.GOOGLE_MAPS_API_KEY,
+                }
+            return render(request, 'reservations/register.html', context)
+        # Create a new user with the given username and password
+        user = User.objects.create_user(username=user_name, password=password)
+         # Redirect the user to the reservation page
+        return redirect('sign_in')
+     # Render the register page if the request method is not POST
+    return render(request, 'reservations/register.html')
 
 
 # Modifying Reservation
 def manage_reservation(request):
+    reservations = Reservation.objects.all();
     context = {
+        'reservations': reservations,
         'google_maps_api_key': settings.GOOGLE_MAPS_API_KEY,
     }
     # Render the reservation management page and pass the reservation data
