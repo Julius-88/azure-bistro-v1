@@ -3,9 +3,14 @@ from django.shortcuts import render, redirect
 from django.conf import settings
 from .models import Reservation
 from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
 
-
+@login_required
 def reserve(request):
+    if not request.user.is_authenticated:
+        return redirect('sign_in')
+    
     if request.method == 'POST':
         date = request.POST.get('date')
         time = request.POST.get('time')
@@ -15,7 +20,7 @@ def reserve(request):
         reservation = Reservation(date=date, time=time, guests=guests, reservation_number=reservation_number)
         reservation.save()
 
-        return redirect('reserve_contact')
+        return redirect('reserve')
 
     context = {
         'google_maps_api_key': settings.GOOGLE_MAPS_API_KEY,
@@ -29,9 +34,28 @@ def reserve_contact(request):
     return render(request, 'reservations/reserve_contact.html', context)
 
 def sign_in(request):
+    if request.method == 'POST':
+        # Get the username and password from the form data
+        username = request.POST['user_name']
+        password = request.POST['password']
+        # Authenticate the user
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            # Log the user in
+            login(request, user)
+            # Redirect the user to the reservation page
+            return redirect('reserve')
+        else:
+            # Return an error message
+            context = {
+                'error_message': 'Invalid login credentials.',
+                'google_maps_api_key': settings.GOOGLE_MAPS_API_KEY,
+                }
+            return render(request, 'reservations/sign_in.html', context)
     context = {
-        'google_maps_api_key': settings.GOOGLE_MAPS_API_KEY,
-    }
+                'google_maps_api_key': settings.GOOGLE_MAPS_API_KEY,
+                }
+    # Render the sign-in page if the request method is not POST
     return render(request, 'reservations/sign_in.html', context)
 
 def register(request):
@@ -64,4 +88,3 @@ def manage_reservation(request):
     }
     # Render the reservation management page and pass the reservation data
     return render(request, 'reservations/manage_reservation.html', context)
-
