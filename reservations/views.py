@@ -32,6 +32,12 @@ def sign_in(request):
     }
     return render(request, 'reservations/sign_in.html', context)
 
+def register(request):
+    context = {
+        'google_maps_api_key': settings.GOOGLE_MAPS_API_KEY,
+    }
+    return render(request, 'reservations/register.html', context)
+
 
 # Modifying Reservation
 def manage_reservation(request):

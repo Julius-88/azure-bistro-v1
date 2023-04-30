@@ -37,7 +37,7 @@
         </nav>
     </header>
     <main id="form-container">
-        <h1 class="font-lora">SIGN IN</h1>
+        <h1 class="font-lora">register</h1>
         <form id="form" method="POST" action="{% url 'reserve' %}">
             {% csrf_token %}
             <label for="user_name" class="font-lato label">User Name</label>
@@ -48,11 +48,6 @@
                 <input type="submit" value="login" id="submit-button" class="font-lato button">
             </div>
         </form>
-        <div class="register-container">
-            <p class="font-lato">You need to create an account before you can make a reservation</p>
-            <button class="font-lato button register-button" id="register-btn">create
-                account</button>
-        </div>
     </main>
     <footer>
         <section id="map"></section>
@@ -76,11 +71,6 @@
     </footer>
     <script src="{% static 'js/script.js' %}"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key={{ google_maps_api_key }}&callback=initMap">
-    </script>
-    <script>
-        document.getElementById('register-btn').addEventListener('click', function () {
-            window.location.href = "/register/";
-        });
     </script>
 </body>
 
