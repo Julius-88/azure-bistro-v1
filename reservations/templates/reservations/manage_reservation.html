@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/d5722e680c.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{% static 'css/global_styles.css' %} ">
+    <link rel="stylesheet" href="{% static 'css/form_styles.css' %} ">
     <script src="{% static 'js/script.js' %}"></script>
     <title>Azure Bistro | Reservations</title>
 </head>
@@ -35,6 +36,28 @@
             </div>
         </nav>
     </header>
+    <main id="form-container">
+        <h1 class="font-lora">Manage Reservation</h1>
+        <form id="form" method="POST">
+            {% csrf_token %}
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date">
+            <label for="time">Time:</label>
+            <select id="time" name="time">
+            </select>
+            <label for="guests">Number of guests:</label>
+            <select id="guests" name="guests">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+            <div class="submit-button-container">
+                <input type="submit" value="update" id="submit-button" class="font-lato button update-button">
+                <input type="submit" value="cancel" id="submit-button" class="font-lato button cancel-button">
+            </div>
+        </form>
+    </main>
     <footer>
         <section id="map"></section>
         <section class="footer-middle">

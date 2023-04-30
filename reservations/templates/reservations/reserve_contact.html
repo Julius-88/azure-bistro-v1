@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/d5722e680c.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'css/global_styles.css' %} ">
+    <link rel="stylesheet" href="{% static 'css/form_styles.css' %} ">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <title>Azure Bistro | Contact</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div>
+                <a href="{% url 'index' %}" class="font-satisfy logo">Azure Bistro</a>
+            </div>
+            <div>
+                <ul>
+                    <li><a href="{% url 'index' %}" class="font-lora">Home</a></li>
+                    <li class="dropdown"><a href="{% url 'menu' %}" class="font-lora">Menu</a>
+                        <div class="dropdown-content">
+                            <a href="{% url 'menu' %}#appetizers">Appetizers</a>
+                            <a href="{% url 'menu' %}#main-courses">Main Courses</a>
+                            <a href="{% url 'menu' %}#desserts">Desserts</a>
+                            <a href="{% url 'menu' %}#drinks">Drinks</a>
+                        </div>
+                    </li>
+                    <li><a href="{% url 'reserve' %}" class="font-lora">Reserve</a></li>
+                    <li><a href="{% url 'contact' %}" class="font-lora">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main id="form-container">
+        <h1 class="font-lora">CONTACT DETAIL</h1>
+        <form id="form">
+            <input type="hidden" name="reservation_date" id="reservation_date">
+            <input type="hidden" name="reservation_time" id="reservation_time">
+            <input type="hidden" name="reservation_guests" id="reservation_guests">
+            <label for="user_name" class="font-lato label">Name:</label>
+            <input type="text" name="user_name" id="user_name" required>
+            <label for="user_email" class="font-lato label">Email:</label>
+            <input type="email" name="user_email" id="user_email" required>
+            <label for="message" class="font-lato label">Message:</label>
+            <textarea name="message" id="message" required></textarea>
+            <div class="submit-button-container">
+                <input type="submit" value="Send" id="submit-button" class="font-lato button">
+            </div>
+        </form>
+    </main>
+    <footer>
+        <section id="map"></section>
+        <section class="footer-middle">
+            <p>Arenavägen 69, 121 77 Johanneshov</p>
+            <p>Tel: 070-4567187</p>
+        </section>
+        <section class="footer-right">
+            <div class="social-media-container">
+                <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" class="social-media"><i
+                        class="fab fa-facebook fa-lg"></i></a>
+                <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="social-media"><i
+                        class="fab fa-instagram fa-lg"></i></a>
+                <a href="https://www.snapchat.com/" target="_blank" rel="noopener noreferrer" class="social-media"><i
+                        class="fab fa-snapchat fa-lg"></i></a>
+                <a href="https://www.twitter.com/" target="_blank" rel="noopener noreferrer" class="social-media"><i
+                        class="fab fa-twitter fa-lg"></i></a>
+            </div>
+            <p class="copyright">&copy; copyright 2023</p>
+        </section>
+    </footer>
+    <script src="{% static 'js/script.js' %}"></script>
+    <script src="{% static 'js/reserve_contact.js' %}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key={{ google_maps_api_key }}&callback=initMap">
+    </script>
+</body>
+
+</html>

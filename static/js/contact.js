@@ -1,5 +1,4 @@
 (function () {
-  // https://dashboard.emailjs.com/admin/account
   emailjs.init('reJOcVVShhJl7jLGK');
 })();
 
@@ -10,7 +9,6 @@ window.onload = function () {
       event.preventDefault();
       // generate a five digit number for the contact_number variable
       this.contact_number.value = (Math.random() * 100000) | 0;
-      // these IDs from the previous steps
       emailjs.sendForm('service_azure', 'template_azure', this).then(
         function () {
           alert('Your message has been sent!');

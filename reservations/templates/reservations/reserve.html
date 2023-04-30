@@ -8,9 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/d5722e680c.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{% static 'css/global_styles.css' %} ">
-    <link rel="stylesheet" href="{% static 'css/contact_styles.css' %} ">
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <title>Azure Bistro | Contact</title>
+    <link rel="stylesheet" href="{% static 'css/form_styles.css' %} ">
+    <script src="{% static 'js/script.js' %}"></script>
+    <title>Azure Bistro | Reservations</title>
 </head>
 
 <body>
@@ -36,18 +36,24 @@
             </div>
         </nav>
     </header>
-    <main id="contact-main">
-        <h1 class="font-lora">CONTACT US</h1>
-        <form id="contact-form">
-            <input type="hidden" name="contact_number">
-            <label for="user_name" class="font-lato label">Name:</label>
-            <input type="text" name="user_name" id="user_name" required>
-            <label for="user_email" class="font-lato label">Email:</label>
-            <input type="email" name="user_email" id="user_email" required>
-            <label for="message" class="font-lato label">Message:</label>
-            <textarea name="message" id="message" required></textarea>
+    <main id="form-container">
+        <h1 class="font-lora">Reserve a table</h1>
+        <form id="form" method="POST" action="{% url 'reserve_contact' %}" id="reservation-info">
+            {% csrf_token %}
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date">
+            <label for="time">Time:</label>
+            <select id="time" name="time">
+            </select>
+            <label for="guests">Number of guests:</label>
+            <select id="guests" name="guests">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
             <div class="submit-button-container">
-                <input type="submit" value="Send" id="submit-button" class="font-lato button">
+                <input type="submit" value="Next" id="submit-button" class="font-lato button">
             </div>
         </form>
     </main>
@@ -71,8 +77,15 @@
             <p class="copyright">&copy; copyright 2023</p>
         </section>
     </footer>
-    <script src="{% static 'js/script.js' %}"></script>
-    <script src="{% static 'js/contact.js' %}"></script>
+    <script>
+        document.getElementById('reservation-info').addEventListener('submit', function (event) {
+            // Store the reservation details in local storage
+            localStorage.setItem('reservation_date', event.target.date.value);
+            localStorage.setItem('reservation_time', event.target.time.value);
+            localStorage.setItem('reservation_guests', event.target.guests.value);
+        });
+    </script>
+    <script src="{% static 'js/form_customization.js' %}"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key={{ google_maps_api_key }}&callback=initMap">
     </script>
 </body>
