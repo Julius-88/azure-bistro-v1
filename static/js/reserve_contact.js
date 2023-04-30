@@ -22,7 +22,7 @@ window.onload = function () {
     // emailjs.sendForm('service_azure', 'template_confirm', this).then(
     //   function () {
     //     alert('Your message has been sent!');
-    //     window.location.href = '/reserve/';
+    //     window.location.href = '/index/';
     //   },
     //   function (error) {
     //     alert('Your message could not be sent.');

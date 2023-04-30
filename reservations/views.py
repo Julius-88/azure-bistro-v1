@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from django.conf import settings
 from .models import Reservation
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 
 @login_required
@@ -80,11 +80,16 @@ def register(request):
 
 
 # Modifying Reservation
+@login_required
 def manage_reservation(request):
-    reservations = Reservation.objects.all();
+    reservations = Reservation.objects.filter(user=request.user)
     context = {
         'reservations': reservations,
         'google_maps_api_key': settings.GOOGLE_MAPS_API_KEY,
     }
     # Render the reservation management page and pass the reservation data
     return render(request, 'reservations/manage_reservation.html', context)
+
+def logout_view(request):
+    logout(request)
+    return redirect('index')

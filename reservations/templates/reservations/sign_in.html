@@ -32,6 +32,12 @@
                     </li>
                     <li><a href="{% url 'sign_in' %}" class="font-lora">Reserve</a></li>
                     <li><a href="{% url 'contact' %}" class="font-lora">Contact</a></li>
+                    {% if user.is_authenticated %}
+                    <li><a href="{% url 'logout' %}" class="font-lora">Sign Out</a></li>
+                    <li><a href="{% url 'manage_reservation' %}" class="font-lora">Manage Reservation</a></li>
+                    {% else %}
+                    <li><a href="{% url 'sign_in' %}" class="font-lora">Sign In</a></li>
+                    {% endif %}
                 </ul>
             </div>
         </nav>
@@ -47,9 +53,10 @@
             <div class="submit-button-container">
                 <input type="submit" value="login" id="submit-button" class="font-lato button">
             </div>
+            <p class="font-lato">You need to login before you can make a reservation</p>
         </form>
         <div class="register-container">
-            <p class="font-lato">You need to create an account before you can make a reservation</p>
+            <p class="font-lato">Click here to make an account!</p>
             <button class="font-lato button register-button" id="register-btn">create
                 account</button>
         </div>
