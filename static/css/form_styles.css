@@ -1,10 +1,11 @@
+/* ----------------------GENERAL STYLES FOR FORMS---------------------------------- */
+
 #form-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     height: 100vh;
 }
-
 
 #form {
     display: flex;
@@ -144,7 +145,34 @@ textarea {
     color: black;
 }
 
-/* MEDIA QUERY ----------------------------------- */
+/* ----------------------MANAGE RESERVATION---------------------------------- */
+
+.reservation-box {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: rgba(0, 127, 255, 0.6);
+}
+
+.manage-reservation-title {
+    width: 50%;
+    padding: 50px;
+    text-align: center;
+}
+
+.form-field {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form-field label {
+    margin-right: 10px;
+}
+
+/* --------------MEDIA QUERY----------------------- */
 
 @media only screen and (min-width: 768px) {
     #contact-form {
