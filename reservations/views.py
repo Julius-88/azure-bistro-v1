@@ -8,9 +8,6 @@ from django.contrib.auth.decorators import login_required
 
 @login_required
 def reserve(request):
-    if not request.user.is_authenticated:
-        return redirect('sign_in')
-    
     if request.method == 'POST':
         date = request.POST.get('date')
         time = request.POST.get('time')
@@ -21,11 +18,14 @@ def reserve(request):
         reservation.save()
 
         return redirect('reserve')
-
-    context = {
-        'google_maps_api_key': settings.GOOGLE_MAPS_API_KEY,
-    }
-    return render(request, 'reservations/reserve.html', context)
+    # Check if the user is authenticated
+    if request.user.is_authenticated:
+        context = {
+            'google_maps_api_key': settings.GOOGLE_MAPS_API_KEY,
+        }
+        return render(request, 'reservations/reserve.html', context)
+    else:
+        return redirect('sign_in')
 
 def reserve_contact(request):
     context = {
@@ -34,6 +34,9 @@ def reserve_contact(request):
     return render(request, 'reservations/reserve_contact.html', context)
 
 def sign_in(request):
+    if request.user.is_authenticated:
+        return redirect('reserve')
+    
     if request.method == 'POST':
         # Get the username and password from the form data
         username = request.POST['user_name']
