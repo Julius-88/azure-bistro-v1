@@ -31,8 +31,14 @@
                             <a href="{% url 'menu' %}#drinks" class="font-lora">Drinks</a>
                         </div>
                     </li>
-                    <li><a href="{% url 'reserve' %}" class="font-lora">Reserve</a></li>
+                    <li><a href="{% url 'sign_in' %}" class="font-lora">Reserve</a></li>
                     <li><a href="{% url 'contact' %}" class="font-lora">Contact</a></li>
+                    {% if user.is_authenticated %}
+                    <li><a href="{% url 'logout' %}" class="font-lora">Sign Out</a></li>
+                    <li><a href="{% url 'manage_reservation' %}" class="font-lora">Manage Reservation</a></li>
+                    {% else %}
+                    <li><a href="{% url 'sign_in' %}" class="font-lora">Sign In</a></li>
+                    {% endif %}
                 </ul>
             </div>
         </nav>
@@ -42,7 +48,7 @@
         <div class="hero-button-container">
             <a href="{% url 'menu' %}" class="button hero-button">Menu</a>
             <a href="{% url 'menu' %}#drinks" class="button hero-button">Drinks</a>
-            <a href="{% url 'reserve' %}" class="button hero-button">Reserve</a>
+            <a href="{% url 'sign_in' %}" class="button hero-button">Reserve</a>
         </div>
         <div class="hours">
             <p class="font-lato">Mon - Fri: 16:00 - 02:00</p>
@@ -85,7 +91,7 @@
         </a>
     </main>
     <section class="button-container">
-        <a href="{% url 'reserve' %}"><button class="button">RESERVE</button></a>
+        <a href="{% url 'sign_in' %}"><button class="button">RESERVE</button></a>
         <a href="{% url 'contact' %}"><button class="button">CONTACT</button></a>
     </section>
     <footer>

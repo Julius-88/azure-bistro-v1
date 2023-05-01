@@ -9,8 +9,8 @@
     <script src="https://kit.fontawesome.com/d5722e680c.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{% static 'css/global_styles.css' %} ">
     <link rel="stylesheet" href="{% static 'css/form_styles.css' %} ">
-    <script src="{% static 'js/script.js' %}"></script>
-    <title>Azure Bistro | Reservations</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <title>Azure Bistro | Contact</title>
 </head>
 
 <body>
@@ -35,59 +35,31 @@
                     {% if user.is_authenticated %}
                     <li><a href="{% url 'logout' %}" class="font-lora">Sign Out</a></li>
                     <li><a href="{% url 'manage_reservation' %}" class="font-lora">Manage Reservation</a></li>
+                    {% else %}
+                    <li><a href="{% url 'sign_in' %}" class="font-lora">Sign In</a></li>
                     {% endif %}
                 </ul>
             </div>
         </nav>
     </header>
-    <main>
-        <h1 class="font-lora manage-reservation-title">Manage Reservation</h1>
-        {% for reservation in reservations %}
-        <div class="reservation-box">
-            <form method="POST">
-                {% csrf_token %}
-                <input type="hidden" name="reservation_id" value="{{ reservation.id }}">
-                <div class="form-field">
-                    <label for="name">Name:</label>
-                    <input type="text" name="name" id="user_name" value="{{ reservation.name }}">
-                </div>
-                <div class="form-field">
-                    <label for="email">Email:</label>
-                    <input type="email" name="email" id="user_email" value="{{ reservation.email }}">
-                </div>
-                <div class="form-field">
-                    <label for="special_request">Special Request:</label>
-                    <input type="text" name="special_request" id="special_request"
-                        value="{{ reservation.special_request }}">
-                </div>
-                <div class="form-field">
-                    <label for="date">Date:</label>
-                    <input type="date" id="date" name="date">
-                </div>
-                <div class="form-field">
-                    <label for="time">Time:</label>
-                    <select id="time" name="time"></select>
-                </div>
-                <div class="form-field">
-                    <label for="guests">Number of guests:</label>
-                    <select id="guests" name="guests">
-                        <option value="1" selected>1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-
-                    </select>
-                </div>
-                <div class="form-field">
-                    {% if reservation in modified_reservations %}
-                    <span>Modified</span>
-                    {% endif %}
-                    <button type="submit" class="button update-button">Update</button>
-                    <a href="{% url 'delete_reservation' reservation.id %}" class="button delete-button">Delete</a>
-                </div>
-            </form>
+    <main id="form-container">
+        <h1 class="font-lora">SIGN IN</h1>
+        <form id="form" method="POST">
+            {% csrf_token %}
+            <label for="user_name" class="font-lato label">User Name</label>
+            <input type="text" name="user_name" id="user_name" required autocomplete="username">
+            <label for="password" class="font-lato label">Password:</label>
+            <input type="password" name="password" id="password" required autocomplete="password">
+            <div class="submit-button-container">
+                <input type="submit" value="login" id="submit-button" class="font-lato button">
+            </div>
+            <p class="font-lato">You need to login before you can make a reservation</p>
+        </form>
+        <div class="register-container">
+            <p class="font-lato">Click here to make an account!</p>
+            <button class="font-lato button register-button" id="register-btn">create
+                account</button>
         </div>
-        {% endfor %}
     </main>
     <footer>
         <section id="map"></section>
@@ -109,8 +81,13 @@
             <p class="copyright">&copy; copyright 2023</p>
         </section>
     </footer>
-    <script src="{% static 'js/form_customization.js' %}"></script>
+    <script src="{% static 'js/script.js' %}"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key={{ google_maps_api_key }}&callback=initMap">
+    </script>
+    <script>
+        document.getElementById('register-btn').addEventListener('click', function () {
+            window.location.href = "/register/";
+        });
     </script>
 </body>
 

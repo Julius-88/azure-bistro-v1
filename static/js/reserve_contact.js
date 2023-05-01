@@ -14,15 +14,10 @@ window.onload = function () {
   document.getElementById('reservation_guests').value = reservationGuests;
 
   document.getElementById('form').addEventListener('submit', function (event) {
-    event.preventDefault();
-
-    // console.log('reservation_date:', this.reservation_date.value);
-    // console.log('reservation_time:', this.reservation_time.value);
-    // console.log('reservation_guests:', this.reservation_guests.value);
     emailjs.sendForm('service_azure', 'template_confirm', this).then(
       function () {
         alert('Your message has been sent!');
-        window.location.href = '/reserve/';
+        window.location.href = '/index/';
       },
       function (error) {
         alert('Your message could not be sent.');
