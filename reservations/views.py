@@ -119,9 +119,27 @@ def manage_reservation(request):
         'google_maps_api_key': settings.GOOGLE_MAPS_API_KEY,
         'css_files': ['/static/css/global_styles.css', '/static/css/form_styles.css'],
     }
+
+    def delete_reservation(reservation_id):
+        reservation = Reservation.objects.get(id=reservation_id)
+        reservation.delete()
+        messages.success(request, 'Reservation deleted successfully')
+        return redirect('manage_reservation')
+
+    if request.method == 'POST':
+        reservation_id = request.POST.get('reservation_id')
+        delete_reservation(reservation_id)
+
     # Render the reservation management page and pass the reservation data
     return render(request, 'reservations/manage_reservation.html', context)
 
 def logout_view(request):
     logout(request)
     return redirect('index')
+
+
+def delete_reservation(request, id):
+    reservation = Reservation.objects.get(id=id)
+    reservation.delete()
+    messages.success(request, 'Reservation deleted successfully')
+    return redirect('manage_reservation')

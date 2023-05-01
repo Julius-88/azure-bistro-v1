@@ -43,17 +43,37 @@
     <main id="form-container">
         <h1 class="font-lora">Manage Reservation</h1>
         <table>
-            {% for reservation in reservations %}
-            <tr>
-                <td> {{reservation.reservation_number}} </td>
-                <td> {{reservation.name}} </td>
-                <td> {{reservation.email}} </td>
-                <td> {{reservation.special_request}} </td>
-                <td> {{reservation.date}} </td>
-                <td> {{reservation.time}} </td>
-                <td> {{reservation.guests}} </td>
-            </tr>
-            {% endfor %}
+            <thead>
+                <tr>
+                    <th>Reservation Number</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Special Request</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Guests</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for reservation in reservations %}
+                <tr>
+                    <td>{{ reservation.reservation_number }}</td>
+                    <td>{{ reservation.name }}</td>
+                    <td>{{ reservation.email }}</td>
+                    <td>{{ reservation.special_request }}</td>
+                    <td>{{ reservation.date }}</td>
+                    <td>{{ reservation.time }}</td>
+                    <td>{{ reservation.guests }}</td>
+                    <td>
+                        <form method="POST" action="{% url 'delete_reservation' reservation.id %}">
+                            {% csrf_token %}
+                            <button type="submit" class="button">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
         </table>
     </main>
     <footer>
