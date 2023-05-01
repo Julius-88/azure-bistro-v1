@@ -113,8 +113,11 @@ def register(request):
 # Modifying Reservation
 @login_required
 def manage_reservation(request):
+    reservations = Reservation.objects.filter(user=request.user)
     context = {
+        'reservations': reservations,
         'google_maps_api_key': settings.GOOGLE_MAPS_API_KEY,
+        'css_files': ['/static/css/global_styles.css', '/static/css/form_styles.css'],
     }
     # Render the reservation management page and pass the reservation data
     return render(request, 'reservations/manage_reservation.html', context)
