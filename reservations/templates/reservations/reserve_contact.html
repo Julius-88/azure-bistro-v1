@@ -21,6 +21,11 @@
             </div>
             <div>
                 <ul>
+                    {% if messages %}
+                    <script>
+                        alert('{{ messages }}');
+                    </script>
+                    {% endif %}
                     <li><a href="{% url 'index' %}" class="font-lora">Home</a></li>
                     <li class="dropdown"><a href="{% url 'menu' %}" class="font-lora">Menu</a>
                         <div class="dropdown-content">
@@ -45,6 +50,7 @@
     <main id="form-container">
         <h1 class="font-lora">CONTACT DETAIL</h1>
         <form id="form">
+            {% csrf_token %}
             <input type="hidden" name="reservation_date" id="reservation_date">
             <input type="hidden" name="reservation_time" id="reservation_time">
             <input type="hidden" name="reservation_guests" id="reservation_guests">

@@ -46,6 +46,13 @@
         <h1 class="font-lora">Reserve a table</h1>
         <form id="form" method="POST" action="{% url 'reserve_contact' %}">
             {% csrf_token %}
+            <!-- Add the hidden inputs for the reservation data -->
+            <input type="hidden" id="hidden_date" name="date">
+            <input type="hidden" id="hidden_time" name="time">
+            <input type="hidden" id="hidden_guests" name="guests">
+            <input type="hidden" name="user_name" id="user_name" value="{{ user.get_full_name }}">
+            <input type="hidden" name="user_email" id="user_email" value="{{ user.email }}">
+
             <label for="date">Date:</label>
             <input type="date" id="date" name="date">
             <label for="time">Time:</label>
@@ -83,14 +90,14 @@
             <p class="copyright">&copy; copyright 2023</p>
         </section>
     </footer>
-    <script>
+    <!-- <script>
         document.getElementById('form').addEventListener('submit', function (event) {
-            // Store the reservation details in local storage
-            localStorage.setItem('reservation_date', event.target.date.value);
-            localStorage.setItem('reservation_time', event.target.time.value);
-            localStorage.setItem('reservation_guests', event.target.guests.value);
+            // Set the reservation data in the hidden inputs
+            document.getElementById('hidden_date').value = localStorage.getItem('reservation_date');
+            document.getElementById('hidden_time').value = localStorage.getItem('reservation_time');
+            document.getElementById('hidden_guests').value = localStorage.getItem('reservation_guests');
         });
-    </script>
+    </script> -->
     <script src="{% static 'js/form_customization.js' %}"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key={{ google_maps_api_key }}&callback=initMap">
     </script>

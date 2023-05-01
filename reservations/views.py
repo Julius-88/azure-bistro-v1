@@ -5,6 +5,7 @@ from .models import Reservation
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 @login_required
 def reserve(request):
@@ -14,7 +15,7 @@ def reserve(request):
         guests = request.POST.get('guests')
         reservation_number = (random.randint(1, 100000))
         # Create a new reservation using the Reservation model
-        reservation = Reservation(date=date, time=time, guests=guests, reservation_number=reservation_number)
+        reservation = Reservation(user=request.user, date=date, time=time, guests=guests, reservation_number=reservation_number)
         reservation.save()
 
         return redirect('reserve')
@@ -28,6 +29,30 @@ def reserve(request):
         return redirect('sign_in')
 
 def reserve_contact(request):
+    if request.method == 'POST':
+        user = request.user
+        date = request.POST.get('date')
+        time = request.POST.get('time')
+        guests = request.POST.get('guests')
+        name = request.POST.get('user_name')
+        email = request.POST.get('user_email')
+        special_request = request.POST.get('message')
+        reservation_number = (random.randint(1, 100000))
+
+        reservation = Reservation(
+            user=user,
+            date=date,
+            time=time,
+            guests=guests,
+            reservation_number=reservation_number,
+            name=name,
+            email=email,
+            special_request=special_request
+        )
+        reservation.save()
+
+        # Redirect or display a success message
+        return redirect('index')
     context = {
         'google_maps_api_key': settings.GOOGLE_MAPS_API_KEY,
     }
@@ -78,16 +103,17 @@ def register(request):
         user = User.objects.create_user(username=user_name, password=password)
          # Redirect the user to the reservation page
         return redirect('sign_in')
+    context = {
+                'google_maps_api_key': settings.GOOGLE_MAPS_API_KEY,
+                }
      # Render the register page if the request method is not POST
-    return render(request, 'reservations/register.html')
+    return render(request, 'reservations/register.html', context)
 
 
 # Modifying Reservation
 @login_required
 def manage_reservation(request):
-    reservations = Reservation.objects.filter(user=request.user)
     context = {
-        'reservations': reservations,
         'google_maps_api_key': settings.GOOGLE_MAPS_API_KEY,
     }
     # Render the reservation management page and pass the reservation data
