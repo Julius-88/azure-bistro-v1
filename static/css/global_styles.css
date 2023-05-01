@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&family=Lora&family=Satisfy&display=swap');
 
-/* --------------------------------------------------------General Styles */
+/* ----------------------General Styles---------------------------------- */
 
 * {
     padding: 0;
@@ -26,7 +26,8 @@ a:hover {
     color: #FF7F50;
 }
 
-/* --------------------------------------------------------BUTTONS */
+/* -----------------------BUTTONS--------------------------------- */
+
 .button {
     display: inline-block;
     font-family: 'Lora';
@@ -67,7 +68,8 @@ a:hover {
     padding: 10px 20px;
 }
 
-/* --------------------------------------------------------FONTS */
+/* -----------------------FONTS--------------------------------- */
+
 .font-satisfy {
     font-family: 'Satisfy', cursive;
     color: #007FFF;
@@ -87,7 +89,7 @@ a:hover {
     font-family: 'Lato';
 }
 
-/* --------------------------------------------------------NAVBAR */
+/* ------------------------NAVBAR-------------------------------- */
 
 header {
     position: sticky;
@@ -114,8 +116,6 @@ header {
     margin: 15px;
 }
 
-
-
 .dropdown-content {
     display: none;
     position: absolute;
@@ -133,7 +133,7 @@ header {
     display: block;
 }
 
-/* --------------------------------------------------------HERO PAGE*/
+/* ---------------------HERO PAGE-----------------------------------*/
 
 .hero-section {
     background: no-repeat center center / cover url('https://res.cloudinary.com/julius-cloud/image/upload/w_300,h_200,c_fill,q_auto/v1682058029/hero-img_hj2ahr.jpg');
@@ -152,8 +152,6 @@ header {
     font-weight: lighter;
 }
 
-
-
 .hours {
     display: flex;
     align-items: center;
@@ -165,9 +163,7 @@ header {
     margin-bottom: 10px;
 }
 
-
-
-/* --------------------------------------------------------MAIN CONTENT*/
+/* ---------------------MAIN CONTENT-----------------------------------*/
 
 .main {
     margin: 33px 0;
@@ -217,7 +213,7 @@ header {
     align-items: center;
 }
 
-/* --------------------------------------------------------FOOTER */
+/* -----------------------FOOTER--------------------------------- */
 
 footer {
     margin-top: auto;
@@ -258,33 +254,8 @@ footer {
     margin: 5px;
 }
 
-/* --------------------------------------------------------MANAGE RESERVATION */
-.reservation-box {
-    border: 1px solid black;
-    border-radius: 5px;
-    padding: 15px;
-    margin-bottom: 10px;
-    background-color: rgba(0, 127, 255, 0.6);
-}
+/* ---------------------Media Queries----------------------------------- */
 
-.manage-reservation-title {
-    width: 50%;
-    padding: 50px;
-    text-align: center;
-}
-
-.form-field {
-    margin-bottom: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.form-field label {
-    margin-right: 10px;
-}
-
-/* --------------------------------------------------------Media Queries */
 @media screen and (max-width: 950px) {
     .navbar {
         display: flex;
