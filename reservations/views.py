@@ -6,6 +6,8 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from .forms import ReservationForm
+
 
 @login_required
 def reserve(request):
@@ -114,23 +116,26 @@ def register(request):
 @login_required
 def manage_reservation(request):
     reservations = Reservation.objects.filter(user=request.user)
+    modified_reservations = set()
+    
+    if request.method == 'POST':
+        reservation_id = request.POST.get('reservation_id')
+        reservation = Reservation.objects.get(id=reservation_id)
+        form = ReservationForm(request.POST, instance=reservation)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Reservation updated successfully')
+            modified_reservations.add(reservation)
+        else:
+            messages.error(request, 'Invalid form submission')
+
     context = {
         'reservations': reservations,
+        'modified_reservations': modified_reservations,
         'google_maps_api_key': settings.GOOGLE_MAPS_API_KEY,
         'css_files': ['/static/css/global_styles.css', '/static/css/form_styles.css'],
     }
-
-    def delete_reservation(reservation_id):
-        reservation = Reservation.objects.get(id=reservation_id)
-        reservation.delete()
-        messages.success(request, 'Reservation deleted successfully')
-        return redirect('manage_reservation')
-
-    if request.method == 'POST':
-        reservation_id = request.POST.get('reservation_id')
-        delete_reservation(reservation_id)
-
-    # Render the reservation management page and pass the reservation data
+    
     return render(request, 'reservations/manage_reservation.html', context)
 
 def logout_view(request):
@@ -143,3 +148,25 @@ def delete_reservation(request, id):
     reservation.delete()
     messages.success(request, 'Reservation deleted successfully')
     return redirect('manage_reservation')
+
+@login_required
+def modify_reservation(request, reservation_id):
+    reservation = Reservation.objects.get(id=reservation_id)
+
+    if request.method == 'POST':
+        form = ReservationForm(request.POST, instance=reservation)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Reservation updated successfully')
+            return redirect('manage_reservation')
+    else:
+        form = ReservationForm(instance=reservation)
+
+    context = {
+        'form': form,
+        'reservation': reservation,
+        'google_maps_api_key': settings.GOOGLE_MAPS_API_KEY,
+        'css_files': ['/static/css/global_styles.css', '/static/css/form_styles.css'],
+    }
+
+    return render(request, 'reservations/modify_reservation.html', context)

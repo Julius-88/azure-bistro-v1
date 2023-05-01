@@ -34,6 +34,13 @@
     margin-bottom: 10px;
 }
 
+#special_request {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 10px;
+}
+
 #date {
     padding: 10px;
     border-radius: 5px;
@@ -104,11 +111,19 @@
     margin-top: 50px;
 }
 
+.update-button {
+    padding: 20px;
+}
+
+.delete-button {
+    padding: 20px;
+}
+
 .update-button:hover {
     background-color: green;
 }
 
-.cancel-button:hover {
+.delete-button:hover {
     background-color: red;
 }
 
@@ -127,6 +142,8 @@ option,
 textarea {
     color: black;
 }
+
+/* MEDIA QUERY ----------------------------------- */
 
 @media only screen and (min-width: 768px) {
     #contact-form {
