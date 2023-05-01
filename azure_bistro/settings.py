@@ -29,7 +29,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 GOOGLE_MAPS_API_KEY = os.environ.get('GOOGLE_MAPS_API_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['azure-bistro.herokuapp.com', 'localhost', '127.0.0.1']
 
